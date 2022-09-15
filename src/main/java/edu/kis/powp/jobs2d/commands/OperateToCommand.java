@@ -16,7 +16,7 @@ public class OperateToCommand implements DriverCommand{
 		this.driver = driver;
 	}
 
-	public void OperateTo(int x, int y) {
+	private void OperateTo(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
