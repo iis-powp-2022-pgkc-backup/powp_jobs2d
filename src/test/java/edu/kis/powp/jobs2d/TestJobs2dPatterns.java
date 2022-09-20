@@ -48,16 +48,18 @@ public class TestJobs2dPatterns {
 		DriverFeature.addDriver("Logger Driver", loggerDriver);
 		DriverFeature.getDriverManager().setCurrentDriver(loggerDriver);
 
-		Job2dDriver continuousLineAdapter = new ContinuousLineAdapter();
+		DrawPanelController drawPanelController = DrawerFeature.getDrawerController();
+
+		Job2dDriver continuousLineAdapter = new ContinuousLineAdapter(drawPanelController);
 		DriverFeature.addDriver("Continuous line Simulator", continuousLineAdapter);
 
-		Job2dDriver dashedLineAdapter = new DashedLineAdapter();
+		Job2dDriver dashedLineAdapter = new DashedLineAdapter(drawPanelController);
 		DriverFeature.addDriver("Dashed line Simulator", dashedLineAdapter);
 
-		Job2dDriver customLineAdapter = new CustomLineAdapter(LineFactory.getDottedLine());
+		Job2dDriver customLineAdapter = new CustomLineAdapter(drawPanelController, LineFactory.getDottedLine());
 		DriverFeature.addDriver("Dotted line Simulator", customLineAdapter);
 
-		Job2dDriver customCustomLineAdapter = new CustomLineAdapter(new CustomLine(Color.RED, 10, false));
+		Job2dDriver customCustomLineAdapter = new CustomLineAdapter(drawPanelController, new CustomLine(Color.RED, 10, false));
 		DriverFeature.addDriver("Custom line Simulator", customCustomLineAdapter);
 
 

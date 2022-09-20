@@ -1,16 +1,19 @@
 package edu.kis.powp.jobs2d.drivers.adapter;
 
+import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
-import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
-import edu.kis.powp.jobs2d.features.DrawerFeature;
+
+import static edu.kis.powp.jobs2d.features.DrawerFeature.getDrawerController;
 
 public class CustomLineAdapter implements Job2dDriver {
     private int startX = 0, startY = 0;
-    private ILine iLine;
-
-    public CustomLineAdapter(ILine iLine) {
+    private final ILine iLine;
+    private final DrawPanelController drawPanelController;
+    public CustomLineAdapter(DrawPanelController drawPanelController, ILine iLine) {
+        super();
         this.iLine = iLine;
+        this.drawPanelController = drawPanelController;
     }
 
     @Override
@@ -25,7 +28,7 @@ public class CustomLineAdapter implements Job2dDriver {
         iLine.setEndCoordinates(x, y);
 
         setPosition(x, y);
-        DrawerFeature.getDrawerController().drawLine(iLine);
+        drawPanelController.drawLine(iLine);
     }
 
     @Override
