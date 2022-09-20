@@ -7,8 +7,10 @@ import java.util.logging.Logger;
 
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
+import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.ContinuousLineAdapter;
+import edu.kis.powp.jobs2d.drivers.adapter.CustomLineAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.DashedLineAdapter;
 import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
@@ -51,6 +53,9 @@ public class TestJobs2dPatterns {
 
 		Job2dDriver dashedLineAdapter = new DashedLineAdapter();
 		DriverFeature.addDriver("Dashed line Simulator", dashedLineAdapter);
+
+		Job2dDriver customLineAdapter = new CustomLineAdapter(LineFactory.getDottedLine());
+		DriverFeature.addDriver("Dotted line Simulator", customLineAdapter);
 
 
 		DriverFeature.updateDriverInfo();
