@@ -4,15 +4,19 @@ import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.ILine;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.jobs2d.Job2dDriver;
+import edu.kis.powp.jobs2d.features.DrawerFeature;
+
+import static edu.kis.powp.jobs2d.features.DrawerFeature.getDrawerController;
 
 /**
- * driver adapter to drawer with several bugs.
+ * driver adapter to drawer with no bugs.
  */
-public class MyAdapter extends DrawPanelController implements Job2dDriver {
+public class ContinuousLineAdapter implements Job2dDriver {
 	private int startX = 0, startY = 0;
-
-	public MyAdapter() {
+	private final DrawPanelController drawPanelController;
+	public ContinuousLineAdapter(DrawPanelController drawPanelController) {
 		super();
+		this.drawPanelController = drawPanelController;
 	}
 
 	@Override
@@ -27,11 +31,12 @@ public class MyAdapter extends DrawPanelController implements Job2dDriver {
 		line.setStartCoordinates(this.startX, this.startY);
 		line.setEndCoordinates(x, y);
 
-		drawLine(line);
+		setPosition(x, y);
+		drawPanelController.drawLine(line);
 	}
 
 	@Override
 	public String toString() {
-		return "@Q!$!@$!#@$(*#@&Q(%^*#@";
+		return "Drawing continuous line";
 	}
 }
