@@ -28,7 +28,7 @@ public class TestJobs2dPatterns {
 		application.addTest("Figure Joe 1", new SelectTestFigureOptionListener(
 				DriverFeature.getDriverManager(), SelectTestFigureOptionListener.Figure.JOE1));
 		application.addTest("Figure Joe 2", new SelectTestFigureOptionListener(
-				DriverFeature.getDriverManager(), SelectTestFigureOptionListener.Figure.JOE1));
+				DriverFeature.getDriverManager(), SelectTestFigureOptionListener.Figure.JOE2));
 		application.addTest("Figure Rectangle", new SelectTestFigureOptionListener(
 				DriverFeature.getDriverManager(), SelectTestFigureOptionListener.Figure.RECTANGLE));
 		application.addTest("Figure Triangle", new SelectTestFigureOptionListener(
